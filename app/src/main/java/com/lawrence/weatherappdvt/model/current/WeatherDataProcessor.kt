@@ -61,28 +61,5 @@ class WeatherDataProcessor(private val repository: WeatherDataRepository = Weath
             }
         })
     }
-    /*fun gertForecastData(onWeatherDataListener: OnWeatherDataListener) {
-
-        val call = networkRepository.weatherService.getForecast(DeviceLocation.latitude, DeviceLocation.longitude, networkRepository.appId)
-        call.enqueue(object : Callback<ForecastResponse> {
-            override fun onResponse(call: Call<ForecastResponse>?, response: Response<ForecastResponse>?) {
-                if (response != null && response.isSuccessful) {
-                    val weatherItem = response.body()
-                    onWeatherDataListener.onSuccess(WeatherData(
-                        weatherItem?.city?.name!!, weatherItem.weatherDetail[0].weather[0].icon,
-                        weatherItem.weatherDetail[0].main.feelsLike.toString(),
-                        weatherItem.weatherDetail[0].main.tempMin,
-                        weatherItem.weatherDetail[0].main.tempMax.toString()
-                    ))
-                } else {
-                    onFailure(call, Throwable("Bad Response"))
-                }
-            }
-
-            override fun onFailure(call: Call<ForecastResponse>?, t: Throwable?) {
-                Log.e("Response Failure", t?.message, t)
-            }
-        })
-    }*/
 
 }

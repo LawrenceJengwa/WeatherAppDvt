@@ -23,7 +23,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.WeatherDataActivity"/>
-        <activity android:name=".utils.DeviceLocation"/>
-    </application>
+        </application>
 
 </manifest>

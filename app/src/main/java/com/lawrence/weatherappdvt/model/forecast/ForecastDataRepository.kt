@@ -10,7 +10,7 @@ class ForecastDataRepository {
     private val liveData = MutableLiveData<List<ForecastData>>()
 
     fun saveForecastData(tc: ForecastData) {
-        savedForecastData[tc.dateCreated] = tc
+        savedForecastData[tc.timeCreated] = tc
         liveData.value = savedForecastData.values.toList()
     }
 
@@ -30,7 +30,7 @@ class ForecastDataRepository {
 
     fun mergeLocalDataList(dataList: List<ForecastData>) {
         dataList.forEach { forecastData ->
-            savedForecastData[forecastData.dateCreated] = forecastData
+            savedForecastData[forecastData.timeCreated] = forecastData
         }
         liveData.value = savedForecastData.values.toList()
     }
