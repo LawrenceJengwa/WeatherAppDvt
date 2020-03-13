@@ -1,4 +1,4 @@
-package com.lawrence.weatherappdvt.model
+package com.lawrence.weatherappdvt.model.current
 
 import java.util.*
 

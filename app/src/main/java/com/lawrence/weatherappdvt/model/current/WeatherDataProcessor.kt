@@ -1,9 +1,9 @@
-package com.lawrence.weatherappdvt.model
+package com.lawrence.weatherappdvt.model.current
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import com.lawrence.weatherappdvt.network.NetworkRepository
-import com.lawrence.weatherappdvt.network.response.WeatherResponse
+import com.lawrence.weatherappdvt.network.response.CurrentWeatherResponse
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,19 +40,23 @@ class WeatherDataProcessor(private val repository: WeatherDataRepository = Weath
     fun getWeatherData(onWeatherDataListener: OnWeatherDataListener) {
 
         val call = networkRepository.weatherService.getWeather(-26.20227, 28.04363, networkRepository.appId)
-        call.enqueue(object : Callback<WeatherResponse> {
-            override fun onResponse(call: Call<WeatherResponse>?, response: Response<WeatherResponse>?) {
-                if (response != null && response.isSuccessful) {
-                    val weatherItem = response.body()
-                    onWeatherDataListener.onSuccess(WeatherData(weatherItem?.name!!,
-                        weatherItem.sys?.country!!, weatherItem.weather?.get(0)?.description!!,
-                        weatherItem.main?.temp!!, weatherItem.dt.toString()))
+        call.enqueue(object : Callback<CurrentWeatherResponse> {
+            override fun onResponse(call: Call<CurrentWeatherResponse>?, responseCurrent: Response<CurrentWeatherResponse>?) {
+                if (responseCurrent != null && responseCurrent.isSuccessful) {
+                    val weatherItem = responseCurrent.body()
+                    onWeatherDataListener.onSuccess(
+                        WeatherData(
+                            weatherItem?.name!!,
+                            weatherItem.sys?.country!!, weatherItem.weather?.get(0)?.description!!,
+                            weatherItem.main?.temp!!, weatherItem.dt.toString()
+                        )
+                    )
                 } else {
                     onFailure(call, Throwable("Bad Response"))
                 }
             }
 
-            override fun onFailure(call: Call<WeatherResponse>?, t: Throwable?) {
+            override fun onFailure(call: Call<CurrentWeatherResponse>?, t: Throwable?) {
                 Log.e("Response Failure", t?.message, t)
             }
         })

@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import com.lawrence.weatherappdvt.model.WeatherData
+import com.lawrence.weatherappdvt.model.current.WeatherData
 import java.util.*
 
 class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -52,12 +52,15 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         val result = sqliteDB.rawQuery(query, null)
         if (result.moveToFirst()) {
             do {
-                val weatherData = WeatherData(name = result.getString(result.getColumnIndex(COL_NAME)),
-                    country = result.getString(result.getColumnIndex(COL_COUNTRY)),
-                    description = result.getString(result.getColumnIndex(COL_DESCRIPTION)),
-                    temp = result.getDouble(result.getColumnIndex(COL_TEMP)),
-                    dt = result.getString(result.getColumnIndex(COL_DT)),
-                    dateCreated = Date(result.getLong(result.getColumnIndex(COL_DATE_CREATED))))
+                val weatherData =
+                    WeatherData(
+                        name = result.getString(result.getColumnIndex(COL_NAME)),
+                        country = result.getString(result.getColumnIndex(COL_COUNTRY)),
+                        description = result.getString(result.getColumnIndex(COL_DESCRIPTION)),
+                        temp = result.getDouble(result.getColumnIndex(COL_TEMP)),
+                        dt = result.getString(result.getColumnIndex(COL_DT)),
+                        dateCreated = Date(result.getLong(result.getColumnIndex(COL_DATE_CREATED)))
+                    )
                 weatherList.add(weatherData)
             } while (result.moveToNext())
         }

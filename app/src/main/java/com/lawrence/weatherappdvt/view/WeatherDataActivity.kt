@@ -1,7 +1,6 @@
 package com.lawrence.weatherappdvt.view
 
 import android.app.Dialog
-import android.location.Location
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
@@ -11,12 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
 import com.lawrence.weatherappdvt.R
 import com.lawrence.weatherappdvt.databinding.ActivityWeatherDataBinding
 import com.lawrence.weatherappdvt.databinding.DetailDialogBinding
-import com.lawrence.weatherappdvt.model.WeatherData
+import com.lawrence.weatherappdvt.model.current.WeatherData
 import com.lawrence.weatherappdvt.viewmodel.WeatherDataViewModel
 import kotlinx.android.synthetic.main.content_weatherdata.*
 

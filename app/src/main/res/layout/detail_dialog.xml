@@ -9,7 +9,7 @@
 
         <variable
             name="weatherData"
-            type="com.lawrence.weatherappdvt.model.WeatherData" />
+            type="com.lawrence.weatherappdvt.model.current.WeatherData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

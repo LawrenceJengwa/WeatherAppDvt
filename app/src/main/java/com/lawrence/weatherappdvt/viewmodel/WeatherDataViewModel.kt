@@ -3,8 +3,8 @@ package com.lawrence.weatherappdvt.viewmodel
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.lawrence.weatherappdvt.model.WeatherData
-import com.lawrence.weatherappdvt.model.WeatherDataProcessor
+import com.lawrence.weatherappdvt.model.current.WeatherData
+import com.lawrence.weatherappdvt.model.current.WeatherDataProcessor
 import com.lawrence.weatherappdvt.utils.DBHelper
 
 class WeatherDataViewModel @JvmOverloads constructor(app: Application, val weatherDataProcessor: WeatherDataProcessor = WeatherDataProcessor()) :
