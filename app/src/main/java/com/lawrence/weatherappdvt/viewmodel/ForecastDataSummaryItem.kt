@@ -1,4 +1,10 @@
 package com.lawrence.weatherappdvt.viewmodel
 
-data class ForecastDataSummaryItem(val temp: Double, val timeCreated: Long) {
+import java.util.*
+
+data class ForecastDataSummaryItem(val temp: Double,
+                                   val min: Double,
+                                   val max: Double,
+                                   val timeCreated: Date,
+                                   val day: String) {
 }

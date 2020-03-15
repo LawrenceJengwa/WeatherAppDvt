@@ -15,7 +15,7 @@ class ForecastDataViewModel @JvmOverloads constructor(app: Application, val fore
 
         init {
             forecastDataListener = this
-            forecastDataProcessor.gertForecastData(this)
+            forecastDataProcessor.getForecastData(this)
         }
 
         override fun onSuccess(forecastData: ForecastData) {
@@ -33,8 +33,8 @@ class ForecastDataViewModel @JvmOverloads constructor(app: Application, val fore
            forecastDataProcessor.mergeLocalDataList(db.readForecastData())
             return Transformations.map(forecastDataProcessor.loadForecastData()) { weatherDataObjects ->
                 weatherDataObjects.map {
-                    ForecastDataSummaryItem(it.temp,
-                        it.timeCreated)
+                    ForecastDataSummaryItem(it.temp, it.min, it.max,
+                        it.timeCreated, it.day)
                 }
             }
         }

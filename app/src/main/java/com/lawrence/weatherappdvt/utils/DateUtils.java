@@ -17,4 +17,8 @@ public class DateUtils {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("hh:mm:ss dd/MM/yyyy");
         return formatter.format(date);
     }
+
+    public static Double convertKelvinToDegrees(Double d){
+        return convertKelvinToDegrees(d + 273.15);
+    }
 }

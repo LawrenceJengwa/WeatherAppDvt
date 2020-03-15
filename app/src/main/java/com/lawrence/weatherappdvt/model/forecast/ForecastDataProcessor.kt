@@ -38,19 +38,23 @@ class ForecastDataProcessor(private val repository: ForecastDataRepository = For
     fun loadForecastData(): LiveData<List<ForecastData>> {
         return repository.loadForecastData()
     }
-    fun gertForecastData(onForecastDataListener: OnForecastDataListener ) {
+    fun getForecastData(onForecastDataListener: OnForecastDataListener ) {
 
         val call = networkRepository.weatherService.getForecast(lat, lon, networkRepository.appId)
         call.enqueue(object : Callback<ForecastWeatherResponse> {
             override fun onResponse(call: Call<ForecastWeatherResponse>?, response: Response<ForecastWeatherResponse>?) {
                 if (response != null && response.isSuccessful) {
                     val weatherItem = response.body()
-                    onForecastDataListener.onSuccess(ForecastData(
-                        weatherItem?.city?.name!!, weatherItem.weatherDetail[0].weather[0].icon,
-                        weatherItem.weatherDetail[0].main.feelsLike.toString(),
-                        weatherItem.weatherDetail[0].main.tempMin,
-                        weatherItem.weatherDetail[0].main.tempMax
-                    ))
+                    if (weatherItem != null) {
+                        onForecastDataListener.onSuccess(ForecastData(
+                //                        weatherItem?.city?.name!!,
+                            weatherItem.weatherDetail[0].weather[0].icon,
+                            weatherItem.weatherDetail[0].main.tempMax.toString(),
+                            weatherItem.weatherDetail[0].main.tempMax.toString(),
+                            weatherItem.weatherDetail[0].main.tempMin
+
+                        ))
+                    }
                 } else {
                     onFailure(call, Throwable("Bad Response"))
                 }
