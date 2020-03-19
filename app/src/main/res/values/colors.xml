@@ -3,8 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="sunny">#47AB2F</color>
-    <color name="cloudy">#54717A</color>
-    <color name="rainy">#57575D</color>
+
     <color name="white">#FFFFFF</color>
+    <color name="whiteWithOpacity">#33FFFFFF</color>
+    <color name="whiteWithHalfOpacity">#80FFFFFF</color>
+    <color name="mainTextColor">#130E51</color>
+    <color name="chipItemBackgroundColor">#1AADA7FE</color>
+    <color name="chipTextColor">#5D50FE</color>
 </resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "903682799714",
+    "firebase_url": "https://locationpic-8ff5c.firebaseio.com",
+    "project_id": "locationpic-8ff5c",
+    "storage_bucket": "locationpic-8ff5c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903682799714:android:8fae80f7d0ebbe74d4393b",
+        "android_client_info": {
+          "package_name": "com.lawrence.weatherappdvt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903682799714-pp32uqlecgvrg17oar49hf8di21au304.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ-2WE8InPr6zD0AAxoeNxJAXzCCJBXPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903682799714-pp32uqlecgvrg17oar49hf8di21au304.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
